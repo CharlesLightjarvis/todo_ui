@@ -13,7 +13,7 @@ pipeline {
                     $class: 'GitSCM',
                     branches: [[name: '*/main']],
                     userRemoteConfigs: [[
-                        url: 'https://github.com/lightjarvis/todo-ui.git',
+                        url: 'https://github.com/CharlesLightjarvis/todo_ui.git',
                         credentialsId: 'github-token' // Remplacez par l'ID de vos credentials GitHub
                     ]]
                 ])
