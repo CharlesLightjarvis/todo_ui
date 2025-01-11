@@ -9,7 +9,14 @@ pipeline {
     stages {
         stage('Clone Repository') {
             steps {
-                git url: 'https://github.com/lightjarvis/todo-ui.git', branch: 'main'
+                checkout([
+                    $class: 'GitSCM',
+                    branches: [[name: '*/main']],
+                    userRemoteConfigs: [[
+                        url: 'https://github.com/lightjarvis/todo-ui.git',
+                        credentialsId: 'github-token' // Remplacez par l'ID de vos credentials GitHub
+                    ]]
+                ])
             }
         }
         stage('Install Dependencies') {
